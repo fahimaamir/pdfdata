@@ -3,7 +3,8 @@ import PyPDF2
 import re
 import pandas as pd
 from io import StringIO
-
+#PyPDF2==3.0.1
+#openpyxl==3.1.5
 st.html("""
     <style>
         .stMainBlockContainer {
@@ -34,8 +35,8 @@ def extract_customer_name(pdf_path,para1):
         with open(pdf_path, 'rb') as file:
             
                     #with open('inv.pdf', 'rb') as file:
-            #reader = PyPDF2.PdfReader(pdf_path)
-            reader = PyPDF2.PdfReader(uploaded_file)
+            reader = PyPDF2.PdfReader(pdf_path)
+            #reader = PyPDF2.PdfReader(uploaded_file)
             #reader = PyPDF2.PdfReader(file)
             # Assuming the customer name is on the first page (index 0)
             page = reader.pages[0]
@@ -70,21 +71,21 @@ with st.expander("Your PDF"):
         #print(f"Customer Name: {customer_name}")
         #variable1 = st.text_input("Enter your name:", value=mfa)
         #st.text_input("Enter your name:", value=customer_name)
-        mfa1 = st.text_input("Landlord Name", value=extract_customer_name(uploaded_file.name,'Landlord Name:'))
-        mfa2 = st.text_input("Passport/Emirates ID Number ", value=extract_customer_name(uploaded_file.name,'Passport/Emirates ID Number:'))
-        mfa3 = st.text_input("Expiry: ", value=extract_customer_name(uploaded_file.name,'Expiry:'))
-        mfa4 = st.text_input("Property Type:", value=extract_customer_name(uploaded_file.name,'Property Type'))
-        mfa5 = st.text_input("Property Current Status", value=extract_customer_name(uploaded_file.name,'Property Current Status'))
-        mfa6 = st.text_input("Vacating Date", value=extract_customer_name(uploaded_file.name,'Vacating Date:'))
-        mfa7 = st.text_input("Building Name ", value=extract_customer_name(uploaded_file.name,'Building Name'))
-        mfa8 = st.text_input("Property No ", value=extract_customer_name(uploaded_file.name,' Property No:'))
-        mfa9 = st.text_input("Street Name:: ", value=extract_customer_name(uploaded_file.name,'Street Name:'))
-        mfa10 = st.text_input("Community", value=extract_customer_name(uploaded_file.name,'Community:'))
-        mfa11 = st.text_input("Plot Number", value=extract_customer_name(uploaded_file.name,'Plot Number'))
+        mfa1 = st.text_input("Landlord Name", value=extract_customer_name(uploaded_file,'Landlord Name:'))
+        mfa2 = st.text_input("Passport/Emirates ID Number ", value=extract_customer_name(uploaded_file,'Passport/Emirates ID Number:'))
+        mfa3 = st.text_input("Expiry: ", value=extract_customer_name(uploaded_file,'Expiry:'))
+        mfa4 = st.text_input("Property Type:", value=extract_customer_name(uploaded_file,'Property Type'))
+        mfa5 = st.text_input("Property Current Status", value=extract_customer_name(uploaded_file,'Property Current Status'))
+        mfa6 = st.text_input("Vacating Date", value=extract_customer_name(uploaded_file,'Vacating Date:'))
+        mfa7 = st.text_input("Building Name ", value=extract_customer_name(uploaded_file,'Building Name'))
+        mfa8 = st.text_input("Property No ", value=extract_customer_name(uploaded_file,' Property No:'))
+        mfa9 = st.text_input("Street Name:: ", value=extract_customer_name(uploaded_file,'Street Name:'))
+        mfa10 = st.text_input("Community", value=extract_customer_name(uploaded_file,'Community:'))
+        mfa11 = st.text_input("Plot Number", value=extract_customer_name(uploaded_file,'Plot Number'))
         mfa12 = st.text_input("Apt (Sq Ft)", value= 'Input Value')
-        mfa13 = st.text_input("Bedrooms:", value=extract_customer_name(uploaded_file.name,'Bedrooms:'))
-        mfa14 = st.text_input("Parking:", value=extract_customer_name(uploaded_file.name,'Parking:'))
-        mfa15 = st.text_input("Rental Amount/Sale #Amount:", value=extract_customer_name(uploaded_file.name,'Amount:'))
+        mfa13 = st.text_input("Bedrooms:", value=extract_customer_name(uploaded_file,'Bedrooms:'))
+        mfa14 = st.text_input("Parking:", value=extract_customer_name(uploaded_file,'Parking:'))
+        mfa15 = st.text_input("Rental Amount/Sale #Amount:", value=extract_customer_name(uploaded_file,'Amount:'))
         mfa16 = st.text_input("Other", value= 'Input Value')
         mdata.loc[len(mdata)] = ['Landlord Name', mfa1]
         mdata.loc[len(mdata)] = ['Passport/Emirates ID Number', mfa2]
@@ -115,14 +116,14 @@ with st.expander("Sample PDF"):
         #print(f"Customer Name: {customer_name}")
         #variable1 = st.text_input("Enter your name:", value=mfa)
         #st.text_input("Enter your name:", value=customer_name)
-        mfa1 = st.text_input("Invoice Number", value=extract_customer_name(uploaded_file.name,'Invoice Number'))
-        mfa2 = st.text_input("Order Number", value=extract_customer_name(uploaded_file.name,'Order Number'))
-        mfa3 = st.text_input("Invoice Date", value=extract_customer_name(uploaded_file.name,'Invoice Date'))
-        mfa4 = st.text_input("Due Date", value=extract_customer_name(uploaded_file.name,'Due Date'))
-        mfa5 = st.text_input("Total Due", value=extract_customer_name(uploaded_file.name,'Total Due'))
-        mfa6 = st.text_input("Sub Total", value=extract_customer_name(uploaded_file.name,'Sub Total'))
-        mfa7 = st.text_input("Tax", value=extract_customer_name(uploaded_file.name,'Tax'))
-        mfa8 = st.text_input("Total", value=extract_customer_name(uploaded_file.name,'Total'))
+        mfa1 = st.text_input("Invoice Number", value=extract_customer_name(uploaded_file,'Invoice Number'))
+        mfa2 = st.text_input("Order Number", value=extract_customer_name(uploaded_file,'Order Number'))
+        mfa3 = st.text_input("Invoice Date", value=extract_customer_name(uploaded_file,'Invoice Date'))
+        mfa4 = st.text_input("Due Date", value=extract_customer_name(uploaded_file,'Due Date'))
+        mfa5 = st.text_input("Total Due", value=extract_customer_name(uploaded_file,'Total Due'))
+        mfa6 = st.text_input("Sub Total", value=extract_customer_name(uploaded_file,'Sub Total'))
+        mfa7 = st.text_input("Tax", value=extract_customer_name(uploaded_file,'Tax'))
+        mfa8 = st.text_input("Total", value=extract_customer_name(uploaded_file,'Total'))
         
         mdata2.loc[len(mdata2)] = ['Invoice Number', mfa1]
         mdata2.loc[len(mdata2)] = ['Order Number', mfa2]
