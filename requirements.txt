@@ -1,5 +1,5 @@
-streamlit
-PyPDF2
-re
-pandas
-io 
+pandas==2.3.1
+numpy==1.26.4
+openpyxl==3.1.5
+streamlit==1.44.0
+PyPDF2==3.0.1
